@@ -45,6 +45,7 @@ else:
         sample_quantity_noniid,
         modality_iid,
         modality_quantity_noniid,
+        fpl_distribution,
     )
 
     registered_samplers = OrderedDict(
@@ -60,6 +61,8 @@ else:
             ("sample_quantity_noniid", sample_quantity_noniid.Sampler),
             ("modality_iid", modality_iid.Sampler),
             ("modality_quantity_noniid", modality_quantity_noniid.Sampler),
+            ("fpl_distribution", fpl_distribution.Sampler),
+
         ]
     )
 

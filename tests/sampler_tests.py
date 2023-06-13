@@ -19,20 +19,23 @@ For example, when you want to test the label_quantity_noniid_sampler.
 import os
 import unittest
 
-# os.environ['config_file'] = 'tests/TestsConfig/distribution_noniid_sampler.yml'
+import sys
+sys.path.append("..")
 
-# os.environ['config_file'] = 'tests/TestsConfig/label_quantity_noniid_sampler.yml'
+# os.environ['config_file'] = 'TestsConfig/distribution_noniid_sampler.yml'
+# os.environ['config_file'] = 'TestsConfig/dirichlet.yml'
+
+# os.environ['config_file'] = 'TestsConfig/label_quantity_noniid_sampler.yml'
 
 # os.environ[
-#     'config_file'] = 'tests/TestsConfig/mixed_label_quantity_noniid_sampler.yml'
+#     'config_file'] = 'TestsConfig/mixed_label_quantity_noniid_sampler.yml'
 
-os.environ[
-    'config_file'] = 'tests/TestsConfig/sample_quantity_noniid_sampler.yml'
+os.environ['config_file'] = 'TestsConfig/fpl.yml'
 
 import numpy as np
 
 from plato.config import Config
-from plato.datasources.cifar10 import DataSource
+from plato.datasources.mnist import DataSource
 from plato.samplers import registry as samplers_registry
 
 import sampler_test_utils

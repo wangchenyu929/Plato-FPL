@@ -14,6 +14,7 @@ from plato.samplers import all_inclusive
 from plato.servers import base
 from plato.trainers import registry as trainers_registry
 from plato.utils import csv_processor, fonts
+from plato.samplers import registry as samplers_registry
 
 
 class Server(base.Server):
@@ -99,6 +100,11 @@ class Server(base.Server):
             if hasattr(Config().data, "testset_size"):
                 self.testset_sampler = all_inclusive.Sampler(
                     self.datasource, testing=True
+                )
+            elif hasattr(Config().data, "testset_sampler"):
+                samplers_registry.get(
+                    # the client_id of server is 0
+                    self.datasource, 0, testing=True
                 )
 
         # Initialize the test accuracy csv file if clients compute locally

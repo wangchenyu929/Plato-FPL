@@ -283,6 +283,9 @@ def verify_client_data_correctness(Sampler,
         client_classes_sample_size = list(client_class_info.values())
         iter_clients_class_info.append(client_classes +
                                        client_classes_sample_size)
+        print("client",client_id,"client_classes_sample_size",client_classes_sample_size)
+        
+        print("client",client_id,"iter_clients_class_info",iter_clients_class_info)
         iter_clients_sample_info.append(client_sample_info)
 
     # Extracting the equality info by using the matrix computation
@@ -335,6 +338,9 @@ def verify_difference_between_clients(clients_id,
     clients_classes_info = OrderedDict(sorted(clients_classes_info.items()))
     clients_samples_info = OrderedDict(sorted(clients_samples_info.items()))
 
+    print("client",clients_id,"client_classes_sample_size",clients_classes_info)
+    print("client",clients_id,"iter_clients_class_info",clients_samples_info)
+    
     clients_data = [
         list(cli_cls_info.keys()) + list(cli_cls_info.values())
         for _, cli_cls_info in list(clients_classes_info.items())
