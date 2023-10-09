@@ -6,7 +6,7 @@ clients:
     total_clients: 10
 
     # The number of clients selected in each round
-    per_round: 3
+    per_round: 2
 
     # Should the clients compute test accuracy locally?
     do_test: true
@@ -17,15 +17,19 @@ server:
 
 data:
     # The training and testing dataset
-    datasource: MNIST
-    data_path: ../../datasets/FPL_MNIST
+    datasource: CIFAR10
+    # datasource: MNIST
+    data_path: ../../datasets/3
     # Number of samples in each partition
     partition_size: 1000
 
     # fpl sampler
     sampler: fpl_distribution
-    # testset_sampler: fpl_distribution
-    fpl_expectation: 0.3,0.3,0.05,0.05,0.05,0.05,0.05,0.05,0.05,0.05
+    # sampler: iid
+    # fpl_expectation: 0.4,0.4,0.025,0.025,0.025,0.025,0.025,0.025,0.025,0.025
+    # fpl_expectation: 0.3,0.3,0.05,0.05,0.05,0.05,0.05,0.05,0.05,0.05
+    fpl_expectation: 0.2,0.2,0.075,0.075,0.075,0.075,0.075,0.075,0.075,0.075
+    # fpl_expectation: 0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1
 
     # sampler: label_quantity_noniid
     # per_client_classes_size: 3
@@ -42,7 +46,7 @@ trainer:
     rounds: 50
 
     # The maximum number of clients running concurrently
-    max_concurrency: 2
+    max_concurrency: 1
 
     # The target accuracy
     target_accuracy: 1
